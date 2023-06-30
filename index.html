@@ -46,9 +46,9 @@
     </nav>
 
     <div
-      class="d-flex flex-column flex-md-row gap-1 align-items-center px-5 py-3"
+      class="d-flex flex-column flex-lg-row gap-1 align-items-center px-5 py-3"
     >
-      <div class="d-flex flex-column justify-content-md-center gap-3 w-50">
+      <div class="d-flex flex-column justify-content-md-center photo">
         <span class="path fs-6">
           Credenciado CASSI > Quero ser um credenciado > Nova solicitação
         </span>
@@ -67,8 +67,8 @@
         </p>
       </div>
 
-      <form action="#" class="card">
-        <div class="card-body fw-bold w-100">
+      <form action="#" class="card flex-grow-1">
+        <div class="card-body fw-bold">
           <div class="form-step form-step-active container gap-4" id="data">
             <div class="progressbar" id="Progress">
               <div class="progress" id="progress"></div>
@@ -109,6 +109,7 @@
                     id="pessoa-fisica"
                     value="option1"
                     checked
+                    required
                   />
                   <label class="form-check-label" for="inlineRadio1">
                     Pessoa física
@@ -121,6 +122,7 @@
                     name="inlineRadioOptions"
                     id="pessoa-juridica"
                     value="option2"
+                    required
                   />
                   <label class="form-check-label" for="inlineRadio2">
                     Pessoa Jurídica
@@ -138,6 +140,7 @@
                   placeholder="Informe o nome..."
                   aria-label="Informe o nome..."
                   aria-describedby="Name"
+                  required
                 />
               </div>
               <div class="col d-flex flex-column">
@@ -149,6 +152,7 @@
                   placeholder="000.000.000-00"
                   aria-label="000.000.000-00"
                   aria-describedby="CPF"
+                  required
                 />
               </div>
             </div>
@@ -158,6 +162,7 @@
                 id="inputTypeProvider"
                 class="form-select"
                 aria-label="Default select example"
+                required
               >
                 <option selected disabled>Selecione o tipo ...</option>
                 <option value="1">Um</option>
@@ -167,21 +172,12 @@
             </div>
             <div class="row gap-3">
               <span>* Especialidade</span>
-              <select
-                id="inputSpecialty"
-                class="form-select"
-                aria-label="Default select example"
-              >
-                <option selected disabled>Selecionar especialidade...</option>
-                <option value="1">Um</option>
-                <option value="2">Dois</option>
-                <option value="3">Três</option>
-              </select>
+              <div class="multi-select" id="multi-select"></div>
             </div>
             <div class="row">
               <button
                 type="button"
-                class="col btnPrev btn-lg p-2"
+                class="col btnPrev p-2"
                 id="btnPrev"
                 disabled
               >
@@ -315,7 +311,7 @@
             <div class="row">
               <button
                 type="button"
-                class="col btnPrev"
+                class="col btnPrev p-2"
                 id="btnPrev"
                 onclick="{index.globals.step--; index.updateFormSteps();}"
               >
@@ -324,7 +320,7 @@
               <div class="col"></div>
               <button
                 type="button"
-                class="col btnNext"
+                class="col btnNext p-2"
                 id="btnNext"
                 onclick="{index.globals.step++; index.updateFormSteps();}"
               >
@@ -413,7 +409,7 @@
             <div class="row">
               <button
                 type="button"
-                class="col btnPrev"
+                class="col btnPrev p-2"
                 id="btnPrev"
                 onclick="{index.globals.step--; index.updateFormSteps();}"
               >
@@ -422,7 +418,7 @@
               <div class="col"></div>
               <button
                 type="button"
-                class="col btnNext"
+                class="col btnNext p-2"
                 id="btnNext"
                 onclick="{index.globals.step++; index.updateFormSteps();}"
               >
@@ -460,11 +456,9 @@
               ></div>
             </div>
             <div class="row">
-              <div
-                class="form-check bg-secondary d-flex justify-content-center py-3"
-              >
+              <div class="form-check d-flex justify-content-center py-3">
                 <input
-                  class="form-check-input"
+                  class="form-check-input mx-3"
                   type="checkbox"
                   value=""
                   id="flexCheckDefault"
@@ -477,7 +471,7 @@
             <div class="row">
               <button
                 type="button"
-                class="col btnPrev"
+                class="col btnPrev p-2"
                 id="btnPrev"
                 onclick="{index.globals.step--; index.updateFormSteps();}"
               >
@@ -486,7 +480,7 @@
               <div class="col"></div>
               <button
                 type="button"
-                class="col btnNext"
+                class="col btnNext p-2"
                 id="btnNext"
                 onclick="{index.globals.step++; index.updateFormSteps();}"
               >
@@ -548,16 +542,16 @@
                 type="button"
                 class="col btnPrev btn-lg p-2"
                 id="btnPrev"
-                disabled
+                onclick="{index.globals.step--; index.updateFormSteps();}"
               >
                 Anterior
               </button>
               <div class="col"></div>
               <button
-                type="button"
+                type="submit"
+                href="#"
                 class="col btnNext p-2"
                 id="btnNext"
-                onclick="{index.globals.step++; index.updateFormSteps();}"
               >
                 Próximo
               </button>
