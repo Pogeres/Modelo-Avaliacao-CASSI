@@ -1,68 +1,56 @@
 const index = {
   elements: {
     /** @type {HTMLFormElement} */
-    Form: document.getElementById("form"),
-  },
+    FormBody: document.getElementById("FormBody"),
 
-  steps: {
-    /**  @type {string} */
-    data: "Dados",
-    /**  @type {string} */
-    address: "Endereço",
-    /**  @type {string} */
-    contact: "Contato",
-    /**  @type {string} */
-    confirmation: "Confirmação",
-    /**  @type {string} */
-    attachments: "Anexos",
+    /** @type {NodeListOf} */
+    Forms: document.querySelectorAll(".form-step"),
+
+    /** @type {NodeListOf} */
+    NextButton: document.querySelectorAll("btnNext"),
+
+    /** @type {NodeListOf} */
+    PrevButton: document.querySelectorAll("btnPrev"),
   },
 
   globals: {
     /**  @type {number} */
-    step: 1,
+    step: 0,
   },
 
   init() {
-    index.loadProgress();
-    index.loadForm(index.globals.step);
-    index.loadbuttons();
+    index.loadButtons();
   },
 
-  loadProgress() {
-    const progressRow = $("<div>").addClass("progressbar");
-    const progressBar = $("<div>")
-      .addClass("progress")
-      .attr({ id: "progress" });
-    progressRow.append(progressBar.get(0));
-
-    $.each(index.steps, function (key, name) {
-      const stepRow = $("<div>")
-        .addClass("progress-step")
-        .attr({ "data-title": name });
-      progressRow.append(stepRow.get(0));
-    });
-    index.elements.Form.append(progressRow.get(0));
-  },
-
-  async loadForm(page) {
-    fetch(`/etapas/${page}.html`).then((response) => response.text());
-    then((data) => {
-      const conteudoDiv = document.getElementById("form");
-      conteudoDiv.append(data);
-    }).catch((error) => console.log(error));
-  },
-
-  loadbuttons() {
-    const buttonsRow = $("<div>").addClass("btnGroup");
-
-    const PreviousButton = $("<a>").addClass("btn btnPrev").attr({ href: "#" });
+  loadButtons() {
+    const PreviousButton = $("<a>")
+      .addClass("btn btnPrev")
+      .attr({ href: "#", id: "btnPrev" })
+      .on("click", function () {
+        index.globals.step--;
+        index.updateFormSteps();
+      });
     PreviousButton.append("Anterior");
 
-    const nextButton = $("<a>").addClass("btn btnNext").attr({ href: "#" });
+    const nextButton = $("<a>")
+      .addClass("btn btnNext")
+      .attr({ href: "#", id: "btnNext" })
+      .on("click", function () {
+        index.globals.step++;
+        index.updateFormSteps();
+      });
     nextButton.append("Próximo");
 
-    buttonsRow.append(PreviousButton.get(0), nextButton.get(0));
-    index.elements.Form.append(buttonsRow.get(0));
+    index.elements.Buttons.append(PreviousButton.get(0), nextButton.get(0));
+  },
+
+  updateFormSteps() {
+    $(index.elements.Forms).each(function () {
+      if ($(this).hasClass("form-step-active")) {
+        $(this).removeClass("form-step-active");
+      }
+    });
+    $(index.elements.Forms[index.globals.step]).addClass("form-step-active");
   },
 };
 

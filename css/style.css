@@ -8,32 +8,17 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
   background-color: var(--base-color);
-  margin: 0;
-  font-size: 16px;
-  font-family: Arial;
-  line-height: 24px;
 }
 
-a {
+body a {
   text-decoration: none;
 }
 
 /* header */
 .header {
   background-color: var(--base-color);
-  padding: 0.5rem;
-  padding-left: 3em;
   border-bottom: 0.1rem solid var(--base-color-100);
-}
-
-.header .logo {
-  width: min-content;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
 }
 
 .header .logo:hover {
@@ -42,126 +27,58 @@ a {
 
 /* footer */
 footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   background-color: var(--primary-color);
-  padding-top: 2rem;
-  padding-left: 3rem;
 }
 
-footer .social-medias {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  padding: 1.5rem;
-}
-
-.social-medias a {
+.socialMedias a {
   display: grid;
   align-content: space-around;
   justify-content: center;
   background-color: var(--base-color);
+  color: var(--primary-color);
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 100%;
-}
-
-a .icons {
-  color: var(--primary-color);
 }
 
 /* content */
 .content {
   display: flex;
   flex-direction: row;
+  padding: 2rem;
 }
 
 /* first part */
-.photo {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  gap: 1rem;
-  padding: 2rem;
-  padding-left: 4rem;
-  padding-right: 5rem;
-}
-
-.photo .path {
+.path {
   color: var(--secondary-color);
-  font-size: small;
 }
 
-.photo .picture img {
-  border-radius: 0.5rem;
-}
-
-.photo .title {
+.text-blue {
   color: var(--primary-color);
-  font-size: xx-large;
-  font-weight: bolder;
 }
 
 /* second part */
-.forms {
-  display: flex;
-  align-content: space-around;
-  justify-content: center;
-  width: 50%;
-  padding: 1rem;
-  padding-left: 5rem;
-  padding-right: 4rem;
-}
 
-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.form-step {
+  display: none;
+  transform-origin: top;
+  animation: animate 0.5s;
   gap: 1rem;
-  align-content: space-around;
-  justify-content: center;
-  border: 0.1rem solid var(--secondary-color);
-  border-bottom: 0.5rem solid var(--primary-color);
-  border-radius: 1rem;
-  padding: 2rem;
 }
 
-.inputs {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-}
-
-.input {
+.form-step-active {
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  gap: 0.5rem;
-  font-weight: bold;
+  gap: 1rem;
 }
 
-.w-max {
-  width: 100%;
-}
-
-.inputText {
-  padding: 0.5rem;
-  border: 0.07rem solid var(--base-color-100);
-  border-radius: 0.2rem;
-}
-
-.inputSelect {
-  padding: 0.45rem;
-  border: 0.07rem solid var(--base-color-100);
-  border-radius: 0.2rem;
-}
-
-.inputRadio {
-  display: flex;
-  flex-direction: row;
-  align-content: space-around;
-  justify-content: center;
+@keyframes animate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* progressBar */
@@ -212,53 +129,39 @@ form {
   position: absolute;
   top: calc(100% + 0.5rem);
   font-size: 0.85rem;
-  color: #666;
+  color: var(--secondary-color);
 }
 
 .progress-step-active {
   background-color: var(--primary-color);
-  border: 0.15rem solid var(--primary-color);
-  color: #f3f3f3;
+  border: 0.3rem solid var(--primary-color);
+  color: var(--warning-color);
 }
 
 /* buttons */
-.btnGroup {
-  display: flex;
-  justify-content: space-between;
-}
-
-.btn {
-  display: block;
-  padding: 0.3rem;
-  padding-top: 0.4rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
-  border-radius: 0.25rem;
-  text-align: center;
-  transition: 0.3s;
-}
 
 /* next button */
 .btnNext {
   background-color: var(--primary-color);
   color: var(--base-color);
+  border: none;
+  border-radius: 0.5rem;
 }
 
 .btnNext:hover {
   background-color: var(--warning-color);
   color: var(--primary-content-color);
-  box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-content-color);
 }
 
 /* previous button */
 .btnPrev {
-  background-color: var(--base-color);
+  background-color: var(--base-colorr);
   color: var(--secondary-color);
-  border: 0.15rem solid var(--secondary-color);
+  border: 0.1rem solid var(--secondary-color);
+  border-radius: 0.5rem;
 }
 
 .btnPrev:hover {
   background-color: var(--primary-color);
   color: var(--base-color);
-  box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-content-color);
 }

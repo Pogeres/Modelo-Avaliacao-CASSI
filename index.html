@@ -6,6 +6,18 @@
     <title>My Project</title>
     <link rel="stylesheet" href="css/style.css" />
 
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- jquery -->
     <script
       src="https://code.jquery.com/jquery-3.7.0.min.js"
@@ -20,28 +32,34 @@
     ></script>
   </head>
 
-  <body>
-    <div class="header">
-      <div class="logo">
-        <a href="#">
-          <img src="img/logo-azul.svg" alt="logo" />
+  <body class="d-flex flex-column gap-1">
+    <nav class="navbar header">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="img/logo-azul.svg"
+            alt="Logo"
+            class="d-inline-block align-text-top ms-5 my-1 p-1 rounded logo"
+          />
         </a>
       </div>
-    </div>
+    </nav>
 
-    <div class="content">
-      <div class="photo">
-        <span class="path">
+    <div
+      class="d-flex flex-column flex-md-row gap-1 align-items-center px-5 py-3"
+    >
+      <div class="d-flex flex-column justify-content-md-center gap-3 w-50">
+        <span class="path fs-6">
           Credenciado CASSI > Quero ser um credenciado > Nova solicitação
         </span>
-        <span class="picture">
+        <span class="figure">
           <img
             src="img/novo-credenciado.png"
             class="figure-img img-fluid rounded"
             alt="novo-credenciado"
           />
         </span>
-        <span class="title">Seja um novo prestador CASSI</span>
+        <span class="fs-2 fw-bold text-blue">Seja um novo prestador CASSI</span>
         <p>
           Para se credenciar à CASSI o primeiro passo é registrar a sua
           proposta, que será avaliada de acordo com a necessidade de oferta dos
@@ -49,18 +67,513 @@
         </p>
       </div>
 
-      <div class="forms">
-        <form id="form" action=""></form>
-      </div>
+      <form action="#" class="card">
+        <div class="card-body fw-bold w-100">
+          <div class="form-step form-step-active container gap-4" id="data">
+            <div class="progressbar" id="Progress">
+              <div class="progress" id="progress"></div>
+              <div
+                class="progress-step progress-step-active"
+                data-title="Dados"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Endereço"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Contato"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Confirmaçao"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Anexos"
+                name="progressStep"
+              ></div>
+            </div>
+            <div class="d-flex flex-column gap-3">
+              <span>* Tipo</span>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="pessoa-fisica"
+                    value="option1"
+                    checked
+                  />
+                  <label class="form-check-label" for="inlineRadio1">
+                    Pessoa física
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="pessoa-juridica"
+                    value="option2"
+                  />
+                  <label class="form-check-label" for="inlineRadio2">
+                    Pessoa Jurídica
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row gap-3">
+              <div class="col d-flex flex-column">
+                <span>* Nome</span>
+                <input
+                  type="Name"
+                  class="form-control"
+                  id="inputName"
+                  placeholder="Informe o nome..."
+                  aria-label="Informe o nome..."
+                  aria-describedby="Name"
+                />
+              </div>
+              <div class="col d-flex flex-column">
+                <span>* CPF</span>
+                <input
+                  type="CPF"
+                  class="form-control"
+                  id="inputCPF"
+                  placeholder="000.000.000-00"
+                  aria-label="000.000.000-00"
+                  aria-describedby="CPF"
+                />
+              </div>
+            </div>
+            <div class="row gap-3">
+              <span>* Tipo de prestador</span>
+              <select
+                id="inputTypeProvider"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected disabled>Selecione o tipo ...</option>
+                <option value="1">Um</option>
+                <option value="2">Dois</option>
+                <option value="3">Três</option>
+              </select>
+            </div>
+            <div class="row gap-3">
+              <span>* Especialidade</span>
+              <select
+                id="inputSpecialty"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected disabled>Selecionar especialidade...</option>
+                <option value="1">Um</option>
+                <option value="2">Dois</option>
+                <option value="3">Três</option>
+              </select>
+            </div>
+            <div class="row">
+              <button
+                type="button"
+                class="col btnPrev btn-lg p-2"
+                id="btnPrev"
+                disabled
+              >
+                Anterior
+              </button>
+              <div class="col"></div>
+              <button
+                type="button"
+                class="col btnNext p-2"
+                id="btnNext"
+                onclick="{index.globals.step++; index.updateFormSteps();}"
+              >
+                Próximo
+              </button>
+            </div>
+          </div>
+          <div class="form-step container gap-4" id="address">
+            <div class="progressbar" id="Progress">
+              <div class="progress" id="progress"></div>
+              <div
+                class="progress-step"
+                data-title="Dados"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step progress-step-active"
+                data-title="Endereço"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Contato"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Confirmaçao"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Anexos"
+                name="progressStep"
+              ></div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span>* CEP</span>
+                <input
+                  type="CEP"
+                  class="form-control"
+                  id="inputCEP"
+                  placeholder="00.000-000"
+                  aria-label="00.000-000"
+                  aria-describedby="CEP"
+                />
+              </div>
+              <div class="col">
+                <span>* Endereço</span>
+                <input
+                  type="address"
+                  id="inputAddress"
+                  class="form-control"
+                  placeholder="Informe o endereço..."
+                  aria-label="Informe o endereço..."
+                  aria-describedby="address"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span>* Estado</span>
+                <select
+                  id="inputUF"
+                  class="form-select"
+                  aria-label="Default select example"
+                >
+                  <option selected disabled>UF...</option>
+                  <option value="1">Um</option>
+                  <option value="2">Dois</option>
+                  <option value="3">Três</option>
+                </select>
+              </div>
+              <div class="col">
+                <span>* Cidade</span>
+                <input
+                  type="city"
+                  id="inputCity"
+                  class="form-control"
+                  placeholder="Informe a cidade..."
+                  aria-label="Informe a cidade..."
+                  aria-describedby="city"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span>* Bairro</span>
+                <input
+                  type="CEP"
+                  class="form-control"
+                  id="inputCEP"
+                  placeholder="00.000-000"
+                  aria-label="00.000-000"
+                  aria-describedby="CEP"
+                />
+              </div>
+              <div class="col">
+                <span>* Número</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="inputNumber"
+                  placeholder="Informe o número..."
+                  aria-label="Informe o número..."
+                  aria-describedby="number"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <span>Complemento</span>
+              <input
+                type="complement"
+                class="form-control"
+                id="inputComplement"
+                placeholder="Informe o complemento..."
+                aria-label="Informe o complemento..."
+                aria-describedby="complement"
+              />
+            </div>
+            <div class="row">
+              <button
+                type="button"
+                class="col btnPrev"
+                id="btnPrev"
+                onclick="{index.globals.step--; index.updateFormSteps();}"
+              >
+                Anterior
+              </button>
+              <div class="col"></div>
+              <button
+                type="button"
+                class="col btnNext"
+                id="btnNext"
+                onclick="{index.globals.step++; index.updateFormSteps();}"
+              >
+                Próximo
+              </button>
+            </div>
+          </div>
+          <div class="form-step container gap-4" id="contact">
+            <div class="progressbar" id="Progress">
+              <div class="progress" id="progress"></div>
+              <div
+                class="progress-step"
+                data-title="Dados"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Endereço"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step progress-step-active"
+                data-title="Contato"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Confirmaçao"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Anexos"
+                name="progressStep"
+              ></div>
+            </div>
+            <div class="row">
+              <span>* Nome para contato</span>
+              <input
+                type="contatctName"
+                id="inputContactName"
+                class="form-control"
+                placeholder="Informe o nome..."
+                aria-label="Informe o nome..."
+                aria-describedby="contatctName"
+              />
+            </div>
+            <div class="row">
+              <div class="col">
+                <span>Telefone Celular</span>
+                <input
+                  type="cellphone"
+                  id="inputCellphone"
+                  class="form-control"
+                  placeholder="(00) 0000-0000"
+                  aria-label="(00) 0000-0000"
+                  aria-describedby="cellphone"
+                />
+              </div>
+              <div class="col">
+                <span>Telefone fixo</span>
+                <input
+                  type="phone"
+                  id="inputPhone"
+                  class="form-control"
+                  placeholder="(00) 0000-0000"
+                  aria-label="(00) 0000-0000"
+                  aria-describedby="phone"
+                />
+              </div>
+            </div>
+            <span class="text-body-secondary fs-6">
+              (Obrigatório informar pelo menos um telefone)
+            </span>
+            <div class="row">
+              <span>* E-mail</span>
+              <input
+                type="email"
+                id="inputEmail"
+                class="form-control"
+                placeholder="Informe o e-mail..."
+                aria-label="Informe o e-mail..."
+                aria-describedby="email"
+              />
+            </div>
+            <div class="row">
+              <button
+                type="button"
+                class="col btnPrev"
+                id="btnPrev"
+                onclick="{index.globals.step--; index.updateFormSteps();}"
+              >
+                Anterior
+              </button>
+              <div class="col"></div>
+              <button
+                type="button"
+                class="col btnNext"
+                id="btnNext"
+                onclick="{index.globals.step++; index.updateFormSteps();}"
+              >
+                Próximo
+              </button>
+            </div>
+          </div>
+          <div class="form-step container gap-4" id="confirmation">
+            <div class="progressbar" id="Progress">
+              <div class="progress" id="progress"></div>
+              <div
+                class="progress-step"
+                data-title="Dados"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Endereço"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Contato"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step progress-step-active"
+                data-title="Confirmaçao"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Anexos"
+                name="progressStep"
+              ></div>
+            </div>
+            <div class="row">
+              <div
+                class="form-check bg-secondary d-flex justify-content-center py-3"
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  I'm not a robot
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <button
+                type="button"
+                class="col btnPrev"
+                id="btnPrev"
+                onclick="{index.globals.step--; index.updateFormSteps();}"
+              >
+                Anterior
+              </button>
+              <div class="col"></div>
+              <button
+                type="button"
+                class="col btnNext"
+                id="btnNext"
+                onclick="{index.globals.step++; index.updateFormSteps();}"
+              >
+                Próximo
+              </button>
+            </div>
+          </div>
+          <div class="form-step container gap-4" id="attachments">
+            <div class="progressbar" id="Progress">
+              <div class="progress" id="progress"></div>
+              <div
+                class="progress-step"
+                data-title="Dados"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Endereço"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Contato"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step"
+                data-title="Confirmaçao"
+                name="progressStep"
+              ></div>
+              <div
+                class="progress-step progress-step-active"
+                data-title="Anexos"
+                name="progressStep"
+              ></div>
+            </div>
+            <div class="row">
+              <label for="formFileLg" class="form-label"
+                >Large file input example</label
+              >
+              <input
+                class="form-control form-control-lg"
+                id="formFileLg"
+                type="file"
+              />
+            </div>
+            <div class="row">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Example textarea</label
+              >
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="row">
+              <button
+                type="button"
+                class="col btnPrev btn-lg p-2"
+                id="btnPrev"
+                disabled
+              >
+                Anterior
+              </button>
+              <div class="col"></div>
+              <button
+                type="button"
+                class="col btnNext p-2"
+                id="btnNext"
+                onclick="{index.globals.step++; index.updateFormSteps();}"
+              >
+                Próximo
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
 
-    <footer>
+    <footer class="d-flex justify-content-between py-4 px-5">
       <div class="logo">
         <a href="">
           <img src="img/logo-branca.svg" alt="logo" />
         </a>
       </div>
-      <div class="social-medias">
+      <div class="d-flex flex-row gap-2 p-2 socialMedias">
         <a href="#">
           <i class="fa-brands fa-facebook-f icons"></i>
         </a>
